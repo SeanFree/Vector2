@@ -176,6 +176,11 @@ Vector2.prototype.divideScalarY = function(scalar){
 	}
 };
 
+Vector2.prototype.normalize = function(){
+	var m = Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2));
+	this.divideScalar(m);
+};
+
 Vector2.prototype.randomize = function(bounds){
 	bounds = bounds || new Vector2(1,1);
 	this.x = Math.random() * bounds.x;
