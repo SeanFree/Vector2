@@ -186,12 +186,22 @@ Vector2.prototype.randomize = function(bounds){
 	this.x = Math.random() * bounds.x;
 	this.y = Math.random() * bounds.y;
 	return this;
-}
+};
 
 Vector2.prototype.addRandom = function(limit){
 	this.x += limit - Math.random() * (limit * 2);
 	this.y += limit - Math.random() * (limit * 2);
-}
+};
+
+
+Vector2.prototype.addRandomX = function(limit){
+	this.x += limit - Math.random() * (limit * 2);
+};
+
+Vector2.prototype.addRandomY = function(limit){
+	this.y += limit - Math.random() * (limit * 2);
+};
+
 
 Vector2.prototype.lerp = function(vec, amount) {
 	vec = vec || this;
@@ -201,6 +211,26 @@ Vector2.prototype.lerp = function(vec, amount) {
 	return this;
 };
 
+Vector2.prototype.midpoint = function(vec){
+	var mp = new Vector2((this.x + vec.x), (this.y + vec.y));
+	mp.divideScalar(2);
+	return mp;
+};
+
+Vector2.prototype.slope = function(vec){
+	return ((vec.y - this.y) / (vec.x - this.x)) * -1;
+};
+
+Vector2.prototype.intercept = function(slope){
+	console.log(-slope*this.x + this.y);	
+	return -slope*this.x + this.y;
+};
+
+Vector2.prototype.distanceTo = function(vec){
+	vec = vec || this;
+	return Math.sqrt(Math.pow(vec.x - this.x, 2) + Math.pow(vec.y - this.y, 2));
+};
+
 Vector2.prototype.angleTo = function(vec, format){
 	vec = vec || this;
 	format = format || 'rad';
@@ -208,9 +238,4 @@ Vector2.prototype.angleTo = function(vec, format){
 							format === 'deg' ? Math.atan2(vec.y - this.y, vec.x - this.x) * 180 / Math.PI :
 							undefined;
 	return angle;
-};
-
-Vector2.prototype.distanceTo = function(vec){
-	vec = vec || this;
-	return Math.sqrt(Math.pow(vec.x - this.x, 2) + Math.pow(vec.y - this.y, 2));
 };
