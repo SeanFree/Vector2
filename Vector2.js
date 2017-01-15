@@ -100,6 +100,7 @@ class Vector2 {
   		this.y /= vec.y || 1;
   		return this;
   	}
+	return this;
   }
   divideX(vec) {
   	if (vec.x === 0) {
@@ -110,6 +111,7 @@ class Vector2 {
   		this.x /= vec.x || 1;
   		return this;
   	}
+	return this;
   }
   divideY(vec) {
   	if (vec.y === 0) {
@@ -120,6 +122,7 @@ class Vector2 {
   		this.y /= vec.y || 1;
   		return this;
   	}
+	return this;
   }
   divideScalar(scalar) {
   	if (scalar === 0) {
@@ -131,6 +134,7 @@ class Vector2 {
   		this.y /= scalar || 1;
   		return this;
   	}
+	return this;
   }
   divideScalarX(scalar) {
   	if (scalar === 0) {
@@ -141,6 +145,7 @@ class Vector2 {
   		this.x /= scalar || 1;
   		return this;
   	}
+	return this;
   }
   divideScalarY(scalar) {
   	if (scalar === 0) {
@@ -151,10 +156,12 @@ class Vector2 {
   		this.Y /= scalar || 1;
   		return this;
   	}
+	return this;
   }
   normalize() {
   	var m = Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2));
   	this.divideScalar(m);
+	return this;
   }
   randomize(bounds) {
   	bounds = bounds || new Vector2(1,1);
@@ -165,12 +172,15 @@ class Vector2 {
   addRandom(limit) {
   	this.x += limit - Math.random() * (limit * 2);
   	this.y += limit - Math.random() * (limit * 2);
+	return this;
   }
   addRandomX(limit) {
   	this.x += limit - Math.random() * (limit * 2);
+	return this;
   }
   addRandomY(limit) {
   	this.y += limit - Math.random() * (limit * 2);
+	return this;
   }
   lerp(vec, amount) {
   	vec = vec || this;
