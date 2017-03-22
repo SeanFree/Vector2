@@ -153,9 +153,11 @@ let Vector2 = ((Math) => {
     		return this;
     	}
     }
+		getMagnitude() {
+			return Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2));
+		}
     normalize() {
-    	var m = Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2));
-    	this.divideScalar(m);
+    	this.divideScalar(this.getMagnitude());
     }
     randomize(bounds) {
     	bounds = bounds || new Vector2(1,1);
