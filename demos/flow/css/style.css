@@ -1,0 +1,58 @@
+body {
+  background-color: black;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.codepen-link {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  height: 40px;
+  width: 40px;
+  z-index: 10;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/544318/logo.jpg");
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.5;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.codepen-link:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 6px #efefef;
+}
+
+.instructions {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: #cfcfff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  line-height: 1.25em;
+  pointer-events: none;
+}
+.instructions ::-moz-selection {
+  background-color: transparent;
+}
+.instructions ::selection {
+  background-color: transparent;
+}
+
+.count {
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  left: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #cfcfff;
+}
